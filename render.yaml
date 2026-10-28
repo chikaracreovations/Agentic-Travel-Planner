@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: agentic-travel-planner
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python -m uvicorn web_server:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: LLM_PROVIDER
+        value: google
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: STRIPE_MODE
+        value: mock
+      - key: DEFAULT_COUNTRY
+        value: India
+      - key: DEFAULT_CURRENCY
+        value: INR
+      - key: DEFAULT_CITY
+        value: New Delhi
+      - key: DEFAULT_AIRPORT
+        value: DEL

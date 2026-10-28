@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agentic Travel Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css?v=99">
+</head>
+
+<body>
+    <div class="app-container">
+        <header class="app-header">
+            <div class="header-left">
+                <button id="history-toggle" class="history-toggle" title="Main menu">
+                    <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960"
+                        width="24" fill="currentColor">
+                        <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z" />
+                    </svg>
+                </button>
+                <h1>Agentic Travel Planner</h1>
+            </div>
+            <div class="header-right">
+                <button type="button" id="location-picker-btn" class="location-badge-btn" title="Change Location or Currency">
+                    <span class="location-flag" id="header-location-flag">🇮🇳</span>
+                    <span class="location-text" id="user-location-text">New Delhi (INR ₹)</span>
+                    <svg class="dropdown-arrow" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div class="status-indicator" id="status-indicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Ready</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- PRD Section 8.3: Trip Workspace Tabs -->
+        <nav class="workspace-tabs-bar" id="workspace-tabs-bar">
+            <button type="button" class="tab-btn active" data-tab="assistant">
+                <span class="tab-icon">💬</span>
+                <span>Travel Assistant</span>
+            </button>
+            <button type="button" class="tab-btn" data-tab="itinerary">
+                <span class="tab-icon">📅</span>
+                <span>Itinerary & Timeline</span>
+                <span class="tab-badge hidden" id="itinerary-badge">0</span>
+            </button>
+            <button type="button" class="tab-btn" data-tab="budget">
+                <span class="tab-icon">💰</span>
+                <span>Budget Intelligence</span>
+            </button>
+            <button type="button" class="tab-btn" data-tab="transport">
+                <span class="tab-icon">✈️</span>
+                <span>Flights & Stays</span>
+            </button>
+            <button type="button" class="tab-btn" data-tab="saved-trips">
+                <span class="tab-icon">📁</span>
+                <span>Saved Trips</span>
+                <span class="tab-badge" id="saved-trips-count">0</span>
+            </button>
+            <button type="button" class="tab-btn" data-tab="langgraph" id="tab-btn-langgraph">
+                <span class="tab-icon">🕸️</span>
+                <span>LangGraph & Agents</span>
+                <span class="tab-badge pulse-badge" id="langgraph-tab-badge">8 Live</span>
+            </button>
+        </nav>
+
+        <div class="content-wrapper">
+            <aside class="history-sidebar collapsed" id="history-sidebar">
+                <div class="sidebar-top-section">
+                    <div class="sidebar-icons-row">
+                        <button id="search-btn" class="sidebar-icon-btn" title="Search">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"
+                                fill="currentColor">
+                                <path
+                                    d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
+                            </svg>
+                        </button>
+                    </div>
+
+                    <button id="new-chat-btn" class="new-chat-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"
+                            fill="currentColor">
+                            <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z" />
+                        </svg>
+                        <span class="new-chat-text">New chat</span>
+                    </button>
+
+                    <div class="sidebar-agent-section">
+                        <button type="button" id="sidebar-view-langgraph-btn" class="sidebar-action-btn langgraph-nav-btn" title="View LangGraph & Multi-Agent Mesh">
+                            <div class="sidebar-action-left">
+                                <span class="action-icon">🕸️</span>
+                                <div class="action-labels">
+                                    <span class="action-title">View LangGraph</span>
+                                    <span class="action-sub">8 Agents & Mesh Topology</span>
+                                </div>
+                            </div>
+                            <span class="action-badge pulse">Live</span>
+                        </button>
+                    </div>
+
+                    <div class="sidebar-mesh-status-card" id="sidebar-mesh-status-card">
+                        <div class="mesh-card-header">
+                            <span class="mesh-title">AGENT MESH</span>
+                            <span class="mesh-status-tag">● Live</span>
+                        </div>
+                        <div class="mesh-pills-list">
+                            <span class="mesh-agent-pill active" title="Supervisor">🧠 Router</span>
+                            <span class="mesh-agent-pill active" title="Flights">✈️ Flights</span>
+                            <span class="mesh-agent-pill active" title="Hotels">🏨 Hotels</span>
+                            <span class="mesh-agent-pill active" title="Local Guide">🧭 Cabs/Apps</span>
+                            <span class="mesh-agent-pill active" title="Itinerary">📅 Itinerary</span>
+                            <span class="mesh-agent-pill active" title="Budget">💰 Math Engine</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="history-header">
+                    <h3>Recent</h3>
+                    <button id="clear-history" class="clear-history-btn" title="Clear all history">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="3 6 5 6 21 6"></polyline>
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="history-list" id="history-list">
+                    <div class="history-empty">No search history yet</div>
+                </div>
+            </aside>
+
+            <!-- TAB 1: Chat & Assistant -->
+            <main class="chat-container tab-content active" id="chat-container" data-tab-content="assistant">
+                <!-- PRD Section 8.4: Truthful Agent Activity Panel -->
+                <div class="agent-activity-bar hidden" id="agent-activity-bar">
+                    <div class="activity-pulse"></div>
+                    <div class="activity-info">
+                        <span class="activity-stage" id="activity-stage">Researching...</span>
+                        <span class="activity-detail" id="activity-detail">Coordinating agent tools</span>
+                    </div>
+                    <button type="button" id="stop-generation-btn" class="stop-btn" title="Cancel running task">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                            <rect x="6" y="6" width="12" height="12" rx="2"></rect>
+                        </svg>
+                        <span>Stop</span>
+                    </button>
+                </div>
+
+                <div class="welcome-message">
+                    <div class="hero-text">
+                        <span class="gradient-text">Namaste, Traveler</span>
+                    </div>
+                    <p class="subtitle">Where would you like to travel today? Domestic getaways, flight deals, and customized itineraries in ₹ INR.</p>
+                    <div class="prompt-chips">
+                        <button type="button" class="prompt-chip" data-prompt="Plan a 4-day trip to Goa from Delhi with complete budget in ₹ INR">🏖️ 4-Day Goa Trip in ₹</button>
+                        <button type="button" class="prompt-chip" data-prompt="Search flights from Mumbai to Dubai on Nov 15">✈️ Mumbai to Dubai Flights</button>
+                        <button type="button" class="prompt-chip" data-prompt="Plan a 5-day scenic Kerala backwaters and Munnar trip">🌴 Kerala & Munnar Tour</button>
+                        <button type="button" class="prompt-chip" data-prompt="Best weekend mountain getaways from Delhi under ₹15,000">⛰️ Weekend from Delhi under ₹15K</button>
+                    </div>
+                </div>
+                <!-- Messages will be inserted here -->
+            </main>
+
+            <!-- TAB 2: Itinerary & Timeline -->
+            <section class="workspace-panel tab-content hidden" id="tab-itinerary">
+                <div class="workspace-header">
+                    <div>
+                        <h2>Trip Itinerary & Timeline</h2>
+                        <p class="workspace-subtitle">Day-by-day schedule, travel times, and activity breakdown.</p>
+                    </div>
+                    <button type="button" id="save-current-itinerary-btn" class="btn-primary-sm">
+                        <span>💾 Save Trip</span>
+                    </button>
+                </div>
+                <div class="itinerary-timeline" id="itinerary-timeline-container">
+                    <div class="workspace-empty-state">
+                        <div class="empty-icon">📅</div>
+                        <h3>No Active Itinerary Yet</h3>
+                        <p>Ask the assistant to plan a trip, or select a prompt chip to generate a personalized day-by-day plan.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: Deterministic Budget Intelligence -->
+            <section class="workspace-panel tab-content hidden" id="tab-budget">
+                <div class="workspace-header">
+                    <div>
+                        <h2>Budget Intelligence</h2>
+                        <p class="workspace-subtitle">Deterministic expense calculator, group per-traveler split, and overrun audits.</p>
+                    </div>
+                    <div class="budget-stat-pills" id="budget-summary-header">
+                        <span class="budget-pill total-pill">Total: <strong id="budget-summary-total">₹0</strong></span>
+                        <span class="budget-pill split-pill">Per Person: <strong id="budget-summary-split">₹0</strong></span>
+                    </div>
+                </div>
+
+                <div class="budget-grid">
+                    <div class="budget-card breakdown-card">
+                        <h3>Itemized Expense Breakdown</h3>
+                        <div class="table-responsive">
+                            <table class="budget-table" id="budget-table">
+                                <thead>
+                                    <tr>
+                                        <th>Category</th>
+                                        <th>Description</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="budget-table-body">
+                                    <tr>
+                                        <td colspan="4" class="text-center empty-cell">No expenses calculated yet. Generate an itinerary to view the deterministic breakdown.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="budget-card audit-card">
+                        <h3>Audit & Compliance</h3>
+                        <div class="audit-stat">
+                            <span>Target Budget:</span>
+                            <strong id="budget-target-display">Not specified</strong>
+                        </div>
+                        <div class="audit-stat">
+                            <span>Status:</span>
+                            <span class="status-badge-inline" id="budget-status-badge">Within Budget</span>
+                        </div>
+                        <div class="audit-stat">
+                            <span>Verified Cost Ratio:</span>
+                            <strong id="budget-verified-ratio">0%</strong>
+                        </div>
+                        <div class="progress-bar-container">
+                            <div class="progress-bar-fill" id="budget-progress-fill" style="width: 0%;"></div>
+                        </div>
+                        <div class="savings-tips" id="savings-tips-box">
+                            <h4>Savings Tips & Adjustments</h4>
+                            <ul id="savings-tips-list">
+                                <li>Specify travel dates to view live carrier fares and hotel deals.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: Flights & Stays -->
+            <section class="workspace-panel tab-content hidden" id="tab-transport">
+                <div class="workspace-header">
+                    <div>
+                        <h2>Flights & Stays</h2>
+                        <p class="workspace-subtitle">Live partner options and verified links.</p>
+                    </div>
+                </div>
+                <div class="transport-grid">
+                    <div class="transport-column">
+                        <h3>✈️ Flight Options</h3>
+                        <div class="cards-list" id="flights-cards-list">
+                            <div class="empty-hint">Search for flights in chat to see live options and booking links.</div>
+                        </div>
+                    </div>
+                    <div class="transport-column">
+                        <h3>🏨 Hotel Stays</h3>
+                        <div class="cards-list" id="hotels-cards-list">
+                            <div class="empty-hint">Search for hotels in chat to compare accommodations.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 5: Saved Trips -->
+            <section class="workspace-panel tab-content hidden" id="tab-saved-trips">
+                <div class="workspace-header">
+                    <div>
+                        <h2>Saved Trips & Itineraries</h2>
+                        <p class="workspace-subtitle">Stored in local database. Reopen, edit, or export at any time.</p>
+                    </div>
+                    <button type="button" id="refresh-saved-trips-btn" class="btn-secondary-sm">
+                        <span>🔄 Refresh</span>
+                    </button>
+                </div>
+                <div class="saved-trips-grid" id="saved-trips-container">
+                    <div class="workspace-empty-state">
+                        <div class="empty-icon">📁</div>
+                        <h3>No Saved Trips</h3>
+                        <p>When you generate an itinerary, click "Save Trip" to store it here permanently.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 6: LangGraph Multi-Agent Mesh -->
+            <section class="workspace-panel tab-content hidden" id="tab-langgraph">
+                <div class="workspace-header langgraph-header">
+                    <div class="langgraph-header-left">
+                        <div class="langgraph-title-row">
+                            <span class="mesh-badge-lg">LangGraph State Machine</span>
+                            <h2>Multi-Agent Mesh & Topology</h2>
+                        </div>
+                        <p class="workspace-subtitle">Interactive state graph, real-time tool orchestration, live simulation, and agent management.</p>
+                    </div>
+                    
+                    <div class="langgraph-demo-controls">
+                        <div class="control-group">
+                            <label for="demo-scenario-select">Demo Scenario:</label>
+                            <select id="demo-scenario-select" class="langgraph-select">
+                                <option value="goa_4day">🏖️ 4-Day Goa Beach & Scooters (DEL ⇄ GOI)</option>
+                                <option value="dubai_luxury">🏙️ 5-Day Dubai International Luxury (BOM ⇄ DXB)</option>
+                                <option value="manali_mountains">⛰️ 3-Day Manali Mountain Retreat (Volvo/Cabs)</option>
+                            </select>
+                        </div>
+                        <div class="demo-btn-group">
+                            <button type="button" id="run-demo-btn" class="btn-demo-run" title="Execute Live Demonstration">
+                                <span class="play-icon">▶</span>
+                                <span id="demo-btn-label">Run Live Demo</span>
+                            </button>
+                            <button type="button" id="pause-demo-btn" class="btn-demo-secondary hidden" title="Pause Demo">
+                                <span>⏸</span>
+                            </button>
+                            <button type="button" id="reset-demo-btn" class="btn-demo-secondary" title="Reset Graph State">
+                                <span>🔄 Reset</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sub-nav bar inside LangGraph workspace -->
+                <div class="langgraph-subnav">
+                    <button type="button" class="langgraph-subnav-btn active" data-subview="graph">
+                        <span>🕸️ Graph Topology & Visual State</span>
+                    </button>
+                    <button type="button" class="langgraph-subnav-btn" data-subview="manage">
+                        <span>⚙️ Agent Management & Controls (<span id="agent-count-display">8</span>)</span>
+                    </button>
+                    <button type="button" class="langgraph-subnav-btn" data-subview="state">
+                        <span>📊 State Channels & Schema</span>
+                    </button>
+                </div>
+
+                <!-- SUBVIEW 1: Interactive Visual State Graph & Live Working Stream -->
+                <div class="langgraph-subview active" id="subview-graph">
+                    <div class="langgraph-grid">
+                        <!-- Left Panel: Interactive Visual Graph -->
+                        <div class="graph-canvas-container">
+                            <div class="graph-canvas-header">
+                                <div class="canvas-legend">
+                                    <span class="legend-item"><span class="legend-dot start"></span> Entry</span>
+                                    <span class="legend-item"><span class="legend-dot router"></span> Supervisor</span>
+                                    <span class="legend-item"><span class="legend-dot worker"></span> Domain Workers</span>
+                                    <span class="legend-item"><span class="legend-dot math"></span> Deterministic Math</span>
+                                    <span class="legend-item"><span class="legend-dot output"></span> Delivery</span>
+                                </div>
+                                <div class="graph-live-indicator" id="graph-execution-status">
+                                    <span class="indicator-pulse"></span>
+                                    <span id="graph-status-text">State: Standby / Ready</span>
+                                </div>
+                            </div>
+                            
+                            <!-- SVG Directed Graph Container -->
+                            <div class="interactive-graph-viewport" id="interactive-graph-viewport">
+                                <svg id="langgraph-svg" class="langgraph-svg" viewBox="0 0 960 520" preserveAspectRatio="xMidYMid meet">
+                                    <defs>
+                                        <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                                            <polygon points="0 1, 8 4, 0 7" fill="#8ab4f8" />
+                                        </marker>
+                                        <marker id="arrowhead-active" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                                            <polygon points="0 1, 8 4, 0 7" fill="#00e676" />
+                                        </marker>
+                                        <filter id="glow-filter" x="-20%" y="-20%" width="140%" height="140%">
+                                            <feGaussianBlur stdDeviation="6" result="blur" />
+                                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                        </filter>
+                                    </defs>
+                                    <g id="svg-edges-group"></g>
+                                    <g id="svg-nodes-group"></g>
+                                </svg>
+                            </div>
+
+                            <div class="graph-canvas-footer">
+                                <span class="tip-text">💡 Tip: Click any agent node in the topology to inspect its runtime memory, bound MCP tools, and configuration.</span>
+                            </div>
+                        </div>
+
+                        <!-- Right Panel: Live Working Console & Step Stream -->
+                        <div class="graph-working-console">
+                            <div class="console-header">
+                                <div class="console-title-wrap">
+                                    <span class="console-icon">⚡</span>
+                                    <h3>Live Working Demonstration</h3>
+                                </div>
+                                <span class="step-badge" id="current-step-badge">Step: 0 / 8</span>
+                            </div>
+
+                            <div class="console-stream" id="console-stream-log">
+                                <div class="console-welcome">
+                                    <div class="welcome-icon">🎬</div>
+                                    <h4>Multi-Agent Demonstration Ready</h4>
+                                    <p>Select a scenario above and click <strong>"Run Live Demo"</strong> to watch the supervisor, flight specialist, local guide, itinerary planner, and budget auditor collaborate in real-time!</p>
+                                </div>
+                            </div>
+
+                            <!-- Active State Inspector Drawer -->
+                            <div class="node-inspector-drawer hidden" id="node-inspector-drawer">
+                                <div class="inspector-header">
+                                    <div class="inspector-title-row">
+                                        <span class="inspector-icon" id="inspector-icon">🧠</span>
+                                        <h4 id="inspector-title">Agent Details</h4>
+                                    </div>
+                                    <button type="button" id="close-inspector-btn" class="close-inspector-btn">&times;</button>
+                                </div>
+                                <div class="inspector-body" id="inspector-body">
+                                    <!-- Populated by JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUBVIEW 2: Comprehensive Agent Management & Tuning -->
+                <div class="langgraph-subview hidden" id="subview-manage">
+                    <div class="manage-intro-bar">
+                        <div>
+                            <h3>Agent Management & Execution Tuning</h3>
+                            <p>Enable/disable individual domain workers, switch reasoning models, tune temperature, and inspect bound MCP tools.</p>
+                        </div>
+                        <div class="manage-actions-row">
+                            <button type="button" id="enable-all-agents-btn" class="btn-secondary-sm">Enable All</button>
+                            <button type="button" id="reset-agents-config-btn" class="btn-secondary-sm">Reset Defaults</button>
+                        </div>
+                    </div>
+
+                    <div class="agent-management-grid" id="agent-management-grid">
+                        <!-- Populated by JS -->
+                    </div>
+                </div>
+
+                <!-- SUBVIEW 3: State Channels & Architectural Specification -->
+                <div class="langgraph-subview hidden" id="subview-state">
+                    <div class="state-channels-container">
+                        <div class="state-intro">
+                            <h3>LangGraph Shared State Channels</h3>
+                            <p>Unlike linear chains, LangGraph uses typed shared state channels that persist intermediate artifacts across turns, eliminating hallucination and enabling parallel worker execution.</p>
+                        </div>
+                        
+                        <div class="channels-grid" id="channels-grid">
+                            <!-- Populated by JS -->
+                        </div>
+
+                        <div class="architecture-highlights">
+                            <div class="highlight-card">
+                                <div class="highlight-icon">⚡</div>
+                                <h4>Parallel Fan-Out & Fan-In</h4>
+                                <p>Flight, Hotel, and Local Guide agents execute concurrently, slashing planning latency from 15s to &lt; 2.5s.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <div class="highlight-icon">🔒</div>
+                                <h4>Deterministic Math Isolation</h4>
+                                <p>Budget sums and per-person splits are executed by Python arithmetic, guaranteeing 100% accurate ₹ figures without LLM arithmetic errors.</p>
+                            </div>
+                            <div class="highlight-card">
+                                <div class="highlight-icon">🚖</div>
+                                <h4>Hyper-Local Transit Rules</h4>
+                                <p>On-the-ground intelligence injects real cab apps (Rapido, Uber, GoaMiles, Scooters) and food apps into the planning context.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="input-wrapper">
+        <form id="chat-form">
+            <input type="file" id="file-input" style="display: none;" multiple>
+            <button type="button" class="attach-btn" title="Open menu" id="attach-menu-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
+            </button>
+
+            <div class="attachment-menu" id="attachment-menu">
+                <label for="file-input" class="menu-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path
+                            d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48">
+                        </path>
+                    </svg>
+                    <span>Upload files</span>
+                </label>
+            </div>
+            <input type="text" id="user-input" placeholder="Ask Agentic Travel..." autocomplete="off">
+            <button type="submit" id="send-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                </svg>
+            </button>
+        </form>
+        <div class="attribution">
+            Weather data by <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> •
+            Flight data by <a href="https://developers.amadeus.com/" target="_blank" rel="noopener">Amadeus</a>
+        </div>
+    </div>
+    </div>
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h3 id="modal-title">Confirm Action</h3>
+            <p id="modal-message">Are you sure?</p>
+            <div class="modal-actions">
+                <button id="modal-cancel" class="btn-secondary">Cancel</button>
+                <button id="modal-confirm" class="btn-danger">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Input Modal (for Rename, etc.) -->
+    <div id="input-modal" class="modal-overlay hidden">
+        <div class="modal-content input-modal-content">
+            <h3 id="input-modal-title">Rename</h3>
+            <input type="text" id="input-modal-field" class="input-modal-field" placeholder="Enter new title">
+            <div class="modal-actions">
+                <button id="input-modal-cancel" class="btn-secondary">Cancel</button>
+                <button id="input-modal-confirm" class="btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast-notification" class="toast hidden">
+        <svg class="toast-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+        <span id="toast-message">Copied to clipboard!</span>
+    </div>
+
+    <!-- Search Modal -->
+    <div id="search-modal" class="modal-overlay hidden">
+        <div class="search-modal-content">
+            <h2 class="search-title">Search</h2>
+            <div class="search-input-container">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960"
+                    width="24" fill="currentColor">
+                    <path
+                        d="M784-120 532-372q-30 24-69 38t-83 14q-109 0-184.5-75.5T120-580q0-109 75.5-184.5T380-840q109 0 184.5 75.5T640-580q0 44-14 83t-38 69l252 252-56 56ZM380-400q75 0 127.5-52.5T560-580q0-75-52.5-127.5T380-760q-75 0-127.5 52.5T200-580q0 75 52.5 127.5T380-400Z" />
+                </svg>
+                <input type="text" id="modal-search-input" placeholder="Search for chats">
+            </div>
+
+            <div class="search-results-section">
+                <h4 class="section-title">Recent</h4>
+                <div id="search-results-list" class="search-results-list">
+                    <!-- Results populated by JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Location & Currency Modal -->
+    <div id="location-modal" class="modal-overlay hidden">
+        <div class="modal-content location-modal-content">
+            <div class="modal-header-row">
+                <h3>📍 Location & Currency</h3>
+                <button type="button" id="close-location-modal-btn" class="close-modal-icon-btn">&times;</button>
+            </div>
+            <p class="modal-subtext">Prices and default departure hub are customized to your location.</p>
+            
+            <button type="button" id="auto-detect-loc-btn" class="btn-detect-loc">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+                <span>Auto-Detect My Location & Currency</span>
+            </button>
+
+            <div class="form-group-row">
+                <label for="loc-city-select">Departure Hub / City:</label>
+                <select id="loc-city-select" class="loc-select">
+                    <option value="DEL|New Delhi|India|INR|Asia/Kolkata">🇮🇳 New Delhi (DEL)</option>
+                    <option value="BOM|Mumbai|India|INR|Asia/Kolkata">🇮🇳 Mumbai (BOM)</option>
+                    <option value="BLR|Bengaluru|India|INR|Asia/Kolkata">🇮🇳 Bengaluru (BLR)</option>
+                    <option value="HYD|Hyderabad|India|INR|Asia/Kolkata">🇮🇳 Hyderabad (HYD)</option>
+                    <option value="MAA|Chennai|India|INR|Asia/Kolkata">🇮🇳 Chennai (MAA)</option>
+                    <option value="CCU|Kolkata|India|INR|Asia/Kolkata">🇮🇳 Kolkata (CCU)</option>
+                    <option value="AMD|Ahmedabad|India|INR|Asia/Kolkata">🇮🇳 Ahmedabad (AMD)</option>
+                    <option value="PNQ|Pune|India|INR|Asia/Kolkata">🇮🇳 Pune (PNQ)</option>
+                    <option value="GOI|Goa|India|INR|Asia/Kolkata">🇮🇳 Goa (GOI/GOX)</option>
+                    <option value="COK|Kochi|India|INR|Asia/Kolkata">🇮🇳 Kochi (COK)</option>
+                    <option value="JAI|Jaipur|India|INR|Asia/Kolkata">🇮🇳 Jaipur (JAI)</option>
+                    <option value="SXR|Srinagar|India|INR|Asia/Kolkata">🇮🇳 Srinagar (SXR)</option>
+                    <option value="IXC|Chandigarh|India|INR|Asia/Kolkata">🇮🇳 Chandigarh (IXC)</option>
+                    <option value="DXB|Dubai|UAE|AED|Asia/Dubai">🇦🇪 Dubai (DXB)</option>
+                    <option value="SIN|Singapore|Singapore|SGD|Asia/Singapore">🇸🇬 Singapore (SIN)</option>
+                    <option value="BKK|Bangkok|Thailand|THB|Asia/Bangkok">🇹🇭 Bangkok (BKK)</option>
+                    <option value="LHR|London|UK|GBP|Europe/London">🇬🇧 London (LHR)</option>
+                    <option value="JFK|New York|USA|USD|America/New_York">🇺🇸 New York (JFK)</option>
+                </select>
+            </div>
+
+            <div class="form-group-row">
+                <label for="loc-currency-select">Preferred Currency:</label>
+                <select id="loc-currency-select" class="loc-select">
+                    <option value="INR">₹ INR (Indian Rupee)</option>
+                    <option value="USD">$ USD (US Dollar)</option>
+                    <option value="EUR">€ EUR (Euro)</option>
+                    <option value="AED">AED (UAE Dirham)</option>
+                    <option value="GBP">£ GBP (British Pound)</option>
+                    <option value="THB">฿ THB (Thai Baht)</option>
+                    <option value="SGD">S$ SGD (Singapore Dollar)</option>
+                </select>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" id="save-location-btn" class="btn-primary">Apply Settings</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/app.js?v=100"></script>
+</body>
+
+</html>

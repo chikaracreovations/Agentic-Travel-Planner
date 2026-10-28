@@ -1,0 +1,263 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R 5 0 R 7 0 R 9 0 R] /Count 4 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612.0 792.0] /Resources << /Font << /F1 11 0 R /F2 12 0 R /F3 13 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 3481 >>
+stream
+0.15 0.39 0.92 rg 45.00 762.00 522.00 1.50 re f
+BT 0.400 0.450 0.550 rg /F2 7.50 Tf 45.00 768.00 Td (AGENTIC TRAVEL PLANNER - TECHNICAL ARCHITECTURE & PRD COMPARISON) Tj ET
+0.88 0.91 0.94 rg 45.00 34.00 522.00 0.75 re f
+BT 0.500 0.550 0.650 rg /F1 8.00 Tf 45.00 22.00 Td (Confidential & Proprietary - Agentic Travel Planner v1.0) Tj ET
+1.0 w 0.8 0.88 1.0 RG 0.96 0.98 1.0 rg 45.00 628.00 522.00 95.00 re B
+0.15 0.39 0.92 rg 45.00 628.00 4.00 95.00 re f
+BT 0.150 0.390 0.920 rg /F2 8.50 Tf 61.00 701.00 Td (SYSTEM ARCHITECTURE BRIEFING) Tj ET
+BT 0.060 0.100 0.200 rg /F2 17.00 Tf 61.00 679.00 Td (Agentic Travel Planner vs. Simple LLM Model) Tj ET
+BT 0.250 0.320 0.450 rg /F3 10.00 Tf 61.00 661.00 Td (A Technical & Architectural Whitepaper on Grounded Multi-Agent Systems) Tj ET
+BT 0.450 0.500 0.600 rg /F1 8.00 Tf 61.00 641.00 Td (Product Requirements Document \(PRD v1.0\) - India-First Localization - Production Architecture) Tj ET
+0.94 0.96 0.99 rg 45.00 604.00 522.00 24.00 re f
+0.15 0.39 0.92 rg 45.00 604.00 3.00 24.00 re f
+BT 0.100 0.180 0.350 rg /F2 11.00 Tf 55.00 612.00 Td (*  1. EXECUTIVE SUMMARY) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 574.00 Td (A critical question in generative AI is: 'Why build an agentic travel system when a user can) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 560.00 Td (simply open Gemini or ChatGPT and ask for a trip plan?') Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 540.00 Td (The short answer is: A standard LLM predicts what a travel plan sounds like; an Agentic) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 526.00 Td (Travel Planner actually executes the planning work. A vanilla LLM has no live inventory,) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 512.00 Td (hallucinates flight numbers, invents out-of-date prices, makes simple mathematical errors in) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 498.00 Td (group splits, cannot check opening hours or transit buffers, and cannot connect to booking) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 484.00 Td (or payment providers.) Tj ET
+1.0 w 0.7 0.85 1.0 RG 0.95 0.98 1.0 rg 45.00 390.00 522.00 74.00 re B
+0.15 0.39 0.92 rg 45.00 390.00 4.00 74.00 re f
+BT 0.100 0.200 0.400 rg /F2 10.00 Tf 59.00 446.00 Td (The Core Principle \(from PRD v1.0 Section 20\)) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 430.00 Td ("The product's defining principle: The AI should not merely tell users how to plan a trip.) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 416.00 Td (It should perform the planning work, validate its results, and help execute the plan--with) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 402.00 Td (transparency, mathematical certainty, and user authorization.") Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 376.00 Td (Travel planning is a high-stakes domain involving non-refundable payments, immovable flight) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 362.00 Td (schedules, and physical transit constraints. When an AI hallucinates a flight time or) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 348.00 Td (calculates a budget incorrectly, the user suffers real financial loss or missed connections.) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 334.00 Td (Solving this requires transitioning from a zero-shot text generator to an autonomous) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 320.00 Td (multi-agent orchestration architecture.) Tj ET
+BT 0.5 0.55 0.65 rg /F1 8.0 Tf 512.00 22.0 Td (Page 1 of 4) Tj ET
+
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612.0 792.0] /Resources << /Font << /F1 11 0 R /F2 12 0 R /F3 13 0 R >> >> /Contents 6 0 R >>
+endobj
+6 0 obj
+<< /Length 6763 >>
+stream
+0.15 0.39 0.92 rg 45.00 762.00 522.00 1.50 re f
+BT 0.400 0.450 0.550 rg /F2 7.50 Tf 45.00 768.00 Td (AGENTIC TRAVEL PLANNER - TECHNICAL ARCHITECTURE & PRD COMPARISON) Tj ET
+0.88 0.91 0.94 rg 45.00 34.00 522.00 0.75 re f
+BT 0.500 0.550 0.650 rg /F1 8.00 Tf 45.00 22.00 Td (Confidential & Proprietary - Agentic Travel Planner v1.0) Tj ET
+0.94 0.96 0.99 rg 45.00 719.00 522.00 24.00 re f
+0.15 0.39 0.92 rg 45.00 719.00 3.00 24.00 re f
+BT 0.100 0.180 0.350 rg /F2 11.00 Tf 55.00 727.00 Td (*  2. COMPREHENSIVE CAPABILITY COMPARISON) Tj ET
+0.12 0.18 0.32 rg 45.00 665.00 522.00 24.00 re f
+BT 1.000 1.000 1.000 rg /F2 8.50 Tf 53.00 673.00 Td (Capability) Tj ET
+BT 1.000 1.000 1.000 rg /F2 8.50 Tf 153.00 673.00 Td (Simple LLM \(Gemini/ChatGPT\)) Tj ET
+BT 1.000 1.000 1.000 rg /F2 8.50 Tf 348.00 673.00 Td (Agentic Travel Planner \(Our Prototype\)) Tj ET
+0.5 w 0.88 0.91 0.94 RG 1.0 1.0 1.0 rg 45.00 621.00 522.00 44.00 re B
+BT 0.100 0.100 0.100 rg /F2 8.00 Tf 53.00 651.00 Td (Flight & Hotel Data) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 651.00 Td (Hallucinates routes, non-existent) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 640.00 Td (flights, and fabricated prices based) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 629.00 Td (on historical training data.) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 651.00 Td (Queries live Amadeus API, Indian carrier) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 640.00 Td (hubs \(IndiGo, Air India, Vistara\), and live) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 629.00 Td (Hotellook/Booking engines.) Tj ET
+0.5 w 0.88 0.91 0.94 RG 0.97 0.98 1.0 rg 45.00 565.00 522.00 56.00 re B
+BT 0.100 0.100 0.100 rg /F2 8.00 Tf 53.00 607.00 Td (Budget & Arithmetic) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 607.00 Td (Token-prediction math. Tables often) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 596.00 Td (have row sums that contradict the) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 585.00 Td (total; misses group splits.) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 607.00 Td (Deterministic Python engine) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 596.00 Td (\(travel_agent/tools/budget.py\). 100% exact) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 585.00 Td (math, per-traveler split, and overrun) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 574.00 Td (alerts.) Tj ET
+0.5 w 0.88 0.91 0.94 RG 1.0 1.0 1.0 rg 45.00 521.00 522.00 44.00 re B
+BT 0.100 0.100 0.100 rg /F2 8.00 Tf 53.00 551.00 Td (Verification &) Tj ET
+BT 0.100 0.100 0.100 rg /F2 8.00 Tf 53.00 540.00 Td (Audit) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 551.00 Td (Cannot differentiate between a real) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 540.00 Td (price and a hallucinated guess.) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 551.00 Td (Audits every line item as 'Verified' \(live) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 540.00 Td (API\) vs 'Estimate' \(benchmarked index\),) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 529.00 Td (calculating verified ratio %.) Tj ET
+0.5 w 0.88 0.91 0.94 RG 0.97 0.98 1.0 rg 45.00 477.00 522.00 44.00 re B
+BT 0.100 0.100 0.100 rg /F2 8.00 Tf 53.00 507.00 Td (Action & Booking) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 507.00 Td (Pure text advice. The user must) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 496.00 Td (manually open 10 tabs and search) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 485.00 Td (dates from scratch.) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 507.00 Td (Generates executable affiliate deep links) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 496.00 Td (\(Aviasales, RentalCars\) and Stripe Checkout) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 485.00 Td (sessions directly.) Tj ET
+0.5 w 0.88 0.91 0.94 RG 1.0 1.0 1.0 rg 45.00 433.00 522.00 44.00 re B
+BT 0.100 0.100 0.100 rg /F2 8.00 Tf 53.00 463.00 Td (Feasibility &) Tj ET
+BT 0.100 0.100 0.100 rg /F2 8.00 Tf 53.00 452.00 Td (Limits) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 463.00 Td (Suggests impossible itineraries \(e.g.) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 452.00 Td (5 distant attractions in 4 hours,) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 441.00 Td (ignoring traffic\).) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 463.00 Td (Deterministic validator checks daily active) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 452.00 Td (hours \(relaxed 6h, moderate 8.5h\) and) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 441.00 Td (enforces transit buffers.) Tj ET
+0.5 w 0.88 0.91 0.94 RG 0.97 0.98 1.0 rg 45.00 389.00 522.00 44.00 re B
+BT 0.100 0.100 0.100 rg /F2 8.00 Tf 53.00 419.00 Td (State & Persistence) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 419.00 Td (Ephemeral chat log. Once the tab is) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 408.00 Td (closed, all structured trip data is) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 397.00 Td (lost.) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 419.00 Td (SQLite database layer \(travel_planner.db\)) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 408.00 Td (storing TripRecord, DayPlan, and) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 397.00 Td (ActivityItem for repeat editing.) Tj ET
+0.5 w 0.88 0.91 0.94 RG 1.0 1.0 1.0 rg 45.00 345.00 522.00 44.00 re B
+BT 0.100 0.100 0.100 rg /F2 8.00 Tf 53.00 375.00 Td (User Interface) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 375.00 Td (Single infinite text scroll.) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 364.00 Td (Difficult to inspect budget line) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 353.00 Td (items or isolated days.) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 375.00 Td (Dual-pane Trip Workspace with dedicated) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 364.00 Td (tabs: Travel Assistant, Itinerary, Budget) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 353.00 Td (Intelligence, Saved Trips.) Tj ET
+0.5 w 0.88 0.91 0.94 RG 0.97 0.98 1.0 rg 45.00 301.00 522.00 44.00 re B
+BT 0.100 0.100 0.100 rg /F2 8.00 Tf 53.00 331.00 Td (India Localization) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 331.00 Td (Defaults to US context \($ USD,) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 320.00 Td (foreign departure airports\) unless) Tj ET
+BT 0.400 0.200 0.200 rg /F1 8.00 Tf 153.00 309.00 Td (repeatedly prompted.) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 331.00 Td (Auto-detects location & timezone. Defaults) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 320.00 Td (to INR \(Rs.\), major domestic hubs) Tj ET
+BT 0.050 0.150 0.350 rg /F1 8.00 Tf 348.00 309.00 Td (\(DEL/BOM/BLR\), and Indian airlines.) Tj ET
+BT 0.5 0.55 0.65 rg /F1 8.0 Tf 512.00 22.0 Td (Page 2 of 4) Tj ET
+
+endstream
+endobj
+7 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612.0 792.0] /Resources << /Font << /F1 11 0 R /F2 12 0 R /F3 13 0 R >> >> /Contents 8 0 R >>
+endobj
+8 0 obj
+<< /Length 4162 >>
+stream
+0.15 0.39 0.92 rg 45.00 762.00 522.00 1.50 re f
+BT 0.400 0.450 0.550 rg /F2 7.50 Tf 45.00 768.00 Td (AGENTIC TRAVEL PLANNER - TECHNICAL ARCHITECTURE & PRD COMPARISON) Tj ET
+0.88 0.91 0.94 rg 45.00 34.00 522.00 0.75 re f
+BT 0.500 0.550 0.650 rg /F1 8.00 Tf 45.00 22.00 Td (Confidential & Proprietary - Agentic Travel Planner v1.0) Tj ET
+0.94 0.96 0.99 rg 45.00 719.00 522.00 24.00 re f
+0.15 0.39 0.92 rg 45.00 719.00 3.00 24.00 re f
+BT 0.100 0.180 0.350 rg /F2 11.00 Tf 55.00 727.00 Td (*  3. THE FIVE ARCHITECTURAL PILLARS) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 689.00 Td (To achieve production-grade reliability, our prototype implements five specialized) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 675.00 Td (architectural layers specified in PRD v1.0:) Tj ET
+1.0 w 0.7 0.85 1.0 RG 0.95 0.98 1.0 rg 45.00 539.00 522.00 116.00 re B
+0.15 0.39 0.92 rg 45.00 539.00 4.00 116.00 re f
+BT 0.100 0.200 0.400 rg /F2 10.00 Tf 59.00 637.00 Td (Pillar 1: Deterministic Budget Intelligence Engine \(PRD Section 7\)) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 621.00 Td (Section 7 mandates: 'The budget engine must be a deterministic calculation service, not solely an LLM-generated estimate.') Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 607.00 Td (- Implemented in travel_agent/tools/budget.py.) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 593.00 Td (- Performs IEEE-754 arithmetic across 7 standard categories \(transport, stays, food, local transit, activities, permits, contingency\).) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 579.00 Td (- Computes total expenses and per-person cost for N travelers.) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 565.00 Td (- Compares against target budgets, flags overages, and generates targeted savings tips in INR.) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 551.00 Td (- Labels each item as Verified vs Estimate, computing a rigorous audit ratio.) Tj ET
+1.0 w 0.7 0.9 0.75 RG 0.95 1.0 0.96 rg 45.00 409.00 522.00 116.00 re B
+0.05 0.6 0.4 rg 45.00 409.00 4.00 116.00 re f
+BT 0.100 0.200 0.400 rg /F2 10.00 Tf 59.00 507.00 Td (Pillar 2: Tool Grounding & Authorization Gates \(PRD Section 5 & 11\)) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 491.00 Td (Standard LLMs generate text. Our Agent Orchestrator executes a stateful tool loop:) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 477.00 Td (- Live flight searches \(Amadeus + Indian IATA carrier registry: 6E, AI, UK, QP, SG, IX\).) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 463.00 Td (- Live weather forecasts \(Open-Meteo current and archive climate proxies\).) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 449.00 Td (- Direct booking execution via pre-filled partner deeplinks.) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 435.00 Td (- Stripe Checkout session generation \(create_payment_session\) with default INR support.) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 421.00 Td (- Human-in-the-loop authorization gates: no charge or transaction occurs without explicit user confirmation.) Tj ET
+1.0 w 0.7 0.85 1.0 RG 0.95 0.98 1.0 rg 45.00 293.00 522.00 102.00 re B
+0.15 0.39 0.92 rg 45.00 293.00 4.00 102.00 re f
+BT 0.100 0.200 0.400 rg /F2 10.00 Tf 59.00 377.00 Td (Pillar 3: Programmatic Constraint & Feasibility Enforcement \(PRD Section 13.2\)) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 361.00 Td (Standard LLMs lack spatial and temporal reasoning. Our feasibility engine \(travel_agent/tools/feasibility.py\):) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 347.00 Td (- Evaluates daily schedules against travel pace \(Relaxed <= 6.0h/day, Moderate <= 8.5h/day, Intense <= 11.0h/day\).) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 333.00 Td (- Enforces mandatory 35-minute transit buffers between distinct sightseeing stops.) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 319.00 Td (- Flags overload warnings if a single day exceeds 4 separate stops.) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 305.00 Td (- Computes an objective Feasibility Score \(0 to 100\) and returns actionable adjustment recommendations.) Tj ET
+BT 0.5 0.55 0.65 rg /F1 8.0 Tf 512.00 22.0 Td (Page 3 of 4) Tj ET
+
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612.0 792.0] /Resources << /Font << /F1 11 0 R /F2 12 0 R /F3 13 0 R >> >> /Contents 10 0 R >>
+endobj
+10 0 obj
+<< /Length 4920 >>
+stream
+0.15 0.39 0.92 rg 45.00 762.00 522.00 1.50 re f
+BT 0.400 0.450 0.550 rg /F2 7.50 Tf 45.00 768.00 Td (AGENTIC TRAVEL PLANNER - TECHNICAL ARCHITECTURE & PRD COMPARISON) Tj ET
+0.88 0.91 0.94 rg 45.00 34.00 522.00 0.75 re f
+BT 0.500 0.550 0.650 rg /F1 8.00 Tf 45.00 22.00 Td (Confidential & Proprietary - Agentic Travel Planner v1.0) Tj ET
+0.94 0.96 0.99 rg 45.00 719.00 522.00 24.00 re f
+0.15 0.39 0.92 rg 45.00 719.00 3.00 24.00 re f
+BT 0.100 0.180 0.350 rg /F2 11.00 Tf 55.00 727.00 Td (*  4. DATA PERSISTENCE & DUAL-PANE WORKSPACE UX) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 689.00 Td (A travel plan is a multi-day living document, not a one-off conversational answer. Our) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 675.00 Td (system separates conversational planning from structured trip artifacts:) Tj ET
+1.0 w 0.7 0.9 0.75 RG 0.95 1.0 0.96 rg 45.00 553.00 522.00 102.00 re B
+0.05 0.6 0.4 rg 45.00 553.00 4.00 102.00 re f
+BT 0.100 0.200 0.400 rg /F2 10.00 Tf 59.00 637.00 Td (Pillar 4: Structured Data Model & SQLite Persistence \(PRD Section 12\)) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 621.00 Td (- Implemented in travel_agent/storage/models.py and travel_agent/storage/db.py.) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 607.00 Td (- Formal entities: TripRecord, DayPlan, ActivityItem, and BudgetBreakdown.) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 593.00 Td (- Stored in durable local SQLite \(travel_planner.db\), ready for PostgreSQL migration.) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 579.00 Td (- REST Endpoints: GET /api/trips, GET /api/trips/{id}, POST /api/trips, DELETE /api/trips/{id}.) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 565.00 Td (- Allows users to reload saved itineraries back into the chat session for iterative refinement \(FR-06 & FR-10\).) Tj ET
+1.0 w 0.7 0.85 1.0 RG 0.95 0.98 1.0 rg 45.00 423.00 522.00 116.00 re B
+0.15 0.39 0.92 rg 45.00 423.00 4.00 116.00 re f
+BT 0.100 0.200 0.400 rg /F2 10.00 Tf 59.00 521.00 Td (Pillar 5: Trip Workspace Dual-Pane Interface \(PRD Section 8.3 & 8.4\)) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 505.00 Td (The web application \(static/index.html & static/js/app.js\) provides a dedicated multi-tab workspace:) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 491.00 Td (1. Travel Assistant: Real-time chat with streaming thought signatures and an Agent Activity Bar with cancel support.) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 477.00 Td (2. Itinerary & Timeline: Day-by-day interactive timeline with activity duration tags and one-click 'Save Trip'.) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 463.00 Td (3. Budget Intelligence: Live itemized breakdown table, per-traveler split, verified status tags, and progress bar.) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 449.00 Td (4. Flights & Stays: Live airline and hotel deals with direct partner booking buttons.) Tj ET
+BT 0.200 0.250 0.350 rg /F1 8.80 Tf 59.00 435.00 Td (5. Saved Trips: Gallery of stored itineraries with quick restore and delete actions.) Tj ET
+0.94 0.96 0.99 rg 45.00 405.00 522.00 24.00 re f
+0.15 0.39 0.92 rg 45.00 405.00 3.00 24.00 re f
+BT 0.100 0.180 0.350 rg /F2 11.00 Tf 55.00 413.00 Td (*  5. INDIA-FIRST LOCALIZATION ARCHITECTURE) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 375.00 Td (The system incorporates comprehensive Indian travel defaults: Automatic location & timezone) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 361.00 Td (detection, currency in Indian Rupee \(INR\), native support for 35+ Indian airports \(DEL, BOM,) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 347.00 Td (BLR, HYD, MAA, CCU, GOI, COK, SXR, JAI\), domestic carriers \(IndiGo, Air India, Vistara,) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 333.00 Td (Akasa\), and domestic holiday benchmarks \(Goa, Kerala, Himachal, Kashmir, Rajasthan\) as well) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 319.00 Td (as outbound Indian hubs \(Dubai, Thailand, Bali\).) Tj ET
+0.94 0.96 0.99 rg 45.00 295.00 522.00 24.00 re f
+0.15 0.39 0.92 rg 45.00 295.00 3.00 24.00 re f
+BT 0.100 0.180 0.350 rg /F2 11.00 Tf 55.00 303.00 Td (*  6. CONCLUSION & STRATEGIC VALUE) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 265.00 Td (While a standard LLM acts as an encyclopedic conversationalist, the Agentic Travel Planner) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 251.00 Td (operates as an integrated travel operating system. By combining LLM reasoning with) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 237.00 Td (deterministic microservices, live API retrieval, persistent relational storage, and an) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 223.00 Td (interactive workspace, it transforms vague travel desires into actionable, mathematically) Tj ET
+BT 0.200 0.240 0.300 rg /F1 9.50 Tf 45.00 209.00 Td (sound, and bookable itineraries.) Tj ET
+BT 0.5 0.55 0.65 rg /F1 8.0 Tf 512.00 22.0 Td (Page 4 of 4) Tj ET
+
+endstream
+endobj
+11 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+12 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+13 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Oblique >>
+endobj
+xref
+0 14
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000139 00000 n 
+0000000292 00000 n 
+0000003825 00000 n 
+0000003978 00000 n 
+0000010793 00000 n 
+0000010946 00000 n 
+0000015160 00000 n 
+0000015314 00000 n 
+0000020287 00000 n 
+0000020358 00000 n 
+0000020434 00000 n 
+trailer
+<< /Size 14 /Root 1 0 R >>
+startxref
+20513
+%%EOF
